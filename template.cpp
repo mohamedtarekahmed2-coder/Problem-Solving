@@ -7,7 +7,9 @@ int main() {
     cin.tie(NULL);
     
     int t = 1;
+    //cin >> t;
 
+    
     while (t--) {
         
     }
