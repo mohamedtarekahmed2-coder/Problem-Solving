@@ -6,26 +6,35 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    int q;
-    ll x = 0;
-    short opr;
-    cin >> q;
-    queue <int> tube;
-    while (q--){
-        cin >> opr;
-        if(opr == 1){
-            cin >> x >> opr;
-            while(opr--) tube.push(x);
+    short op;
+    int count;
+    ll balls, num_balls, ans;
+    bool taken = true;
+    queue <pair<ll, ll>> tube;
+    cin >> count;
+    while (count--)
+    {
+        cin >> op;
+        if (op == 1){
+            cin >> balls >> num_balls;
+            tube.push({balls, num_balls});
         }else{
-            cin >> opr;
-            while(opr--){
-                x += tube.front();
-                tube.pop();
+            ans = 0;
+            cin >> num_balls;
+            while(taken){
+                if (num_balls <= tube.front().second){
+                    ans += tube.front().first * num_balls;
+                    tube.front().second -= num_balls;
+                    if (tube.front().second == 0) tube.pop();
+                    break;
+                }else{
+                    ans += tube.front().first * tube.front().second;
+                    num_balls -= tube.front().second;
+                    tube.pop();
+                }
             }
-            cout << x << "\n";
+            cout << ans << '\n';
         }
-        x = 0;
     }
     return 0;
 }

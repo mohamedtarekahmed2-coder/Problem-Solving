@@ -1,29 +1,37 @@
 #include <iostream>
 #include <vector>
+#include <deque>
+#include <stack>
 using namespace std;
-
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int n = 1;
-    cin >> n;
-    vector <int> ans(n,0);
-    int arr[n+1] = {};
-    for (int i = 0; i < n; i++) cin >> arr[i];
-    for (int j = n - 1; j > 0; j--)
+    int count, num;
+    vector<int> builds;
+    stack<int> cup;
+    deque<int> ans; 
+
+    cin >> count;
+
+    for(int i = 0; i < count; i++)
     {
-        for (int i = j - 1; i >= 0; i--)
-        {
-            if (arr[j] >= arr[i]) ans[i]++;
-            else {
-                ans[i]++;
-                break;
-            }
-        }
+        cin >> num;
+        builds.push_back(num);
     }
-    for (int& i : ans) cout << i << " ";
-    cout << "\n";
+    
+    for (int i = count - 1; i >= 0; i--)
+    {
+        ans.push_front(cup.size());
+        while (!cup.empty() && cup.top() < builds.at(i)) 
+            cup.pop();
+        cup.push(builds.at(i));
+    }
+
+    for (int i = 0 ; i < count; i++ ) {
+        cout << ans.at(i) << ' ';
+    }
+    
     return 0;
 }
