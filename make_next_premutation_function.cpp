@@ -3,13 +3,8 @@
 #include <vector>
 using namespace std;
 
-bool next_premutation_for_me (vector <int>& vec){
-    int one, two, ind, size = vec.size();
-//Test it is the end or not
-    vector <int> testfalse = vec;
-    sort (testfalse.begin(), testfalse.end(), greater<>());
-    if (vec == testfalse) 
-        return false;
+bool next_permutation_for_me (vector <int>& vec){
+    int one, two, ind = -1, size = vec.size();
 //To know the pivot and his location
     for (int i = size - 1; i > 0; i--){
         if (vec.at(i) > vec.at(i - 1)) {
@@ -18,6 +13,8 @@ bool next_premutation_for_me (vector <int>& vec){
             break;
         }
     }
+//Test it is the end or not
+    if (ind == -1) return false;
 //To know the swap number
     for (int i = size - 1; i > 0; i--){
         if (vec.at(i) > one) {
@@ -36,6 +33,6 @@ int main (){
     do{
         for (int& i : numbers) cout << i << ' ';
         cout << '\n';
-    }while (next_premutation_for_me(numbers));
+    }while (next_permutation_for_me(numbers));
     return 0;
 }
