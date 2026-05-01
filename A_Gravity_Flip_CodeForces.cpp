@@ -2,17 +2,19 @@
 #include <algorithm>
 using namespace std;
 
-
-int main() {
+int main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
+
     int n = 1;
-    cin >> n;  
-    int arr[n];  
-    for (int i = 0; i < n; i++) cin >> arr[i];
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
     sort(arr, arr + n);
-    for (int& i: arr) cout << i << " ";
+    for (int &i : arr)
+        cout << i << " ";
     cout << '\n';
     return 0;
 }

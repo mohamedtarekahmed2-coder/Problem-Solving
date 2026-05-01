@@ -6,25 +6,26 @@ void fast_io()
     cin.tie(NULL);
 }
 
-void solve (const string &students, int size){
+void solve(const string &students, int size)
+{
     int answer = 0, max_time = 0;
     for (int i = size - 1; i >= 0; i--)
     {
         if (students[i] == 'P')
             max_time++;
-        else if (answer < max_time){
+        else if (answer < max_time)
+        {
             answer = max_time;
             max_time = 0;
         }
-        else 
+        else
             max_time = 0;
     }
     cout << answer << '\n';
 }
 
-
-
-int main() {
+int main()
+{
     fast_io();
     int test_cases, str_size;
     string students;
@@ -34,7 +35,6 @@ int main() {
         cin >> str_size >> students;
         solve(students, str_size);
     }
-    
-    
+
     return 0;
 }

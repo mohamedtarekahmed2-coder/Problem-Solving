@@ -6,7 +6,8 @@ void fast_io()
     cin.tie(NULL);
 }
 
-int main() {
+int main()
+{
     fast_io();
 
     int test_cases = 1;
@@ -15,6 +16,6 @@ int main() {
     {
         
     }
-    
+
     return 0;
 }
