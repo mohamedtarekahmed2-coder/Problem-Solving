@@ -9,6 +9,12 @@ void fast_io()
 int main() {
     fast_io();
 
+    int test_cases = 1;
+    // cin >> test_cases;
+    while (test_cases--)
+    {
+        
+    }
     
     return 0;
 }
