@@ -6,6 +6,11 @@ void fast_io()
     cin.tie(NULL);
 }
 
+void solve()
+{
+
+}
+
 int main()
 {
     fast_io();
@@ -14,7 +19,7 @@ int main()
     // cin >> test_cases;
     while (test_cases--)
     {
-        
+        solve();
     }
 
     return 0;
