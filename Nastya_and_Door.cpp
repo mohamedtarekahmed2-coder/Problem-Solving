@@ -8,7 +8,7 @@ void fast_io()
     cin.tie(NULL);
 }
 
-vector<int> read_vector(int size)
+vector<int> prefix_sum(int size)
 {
     vector<int> v(size, 0);
     
@@ -54,7 +54,7 @@ void solve()
     int num_mountains, length_door;
     cin >> num_mountains >> length_door;
 
-    vector<int> heights_mountains = read_vector(num_mountains);
+    vector<int> heights_mountains = prefix_sum(num_mountains);
     vector<int> pre_heights = prefix_height(heights_mountains);
 
     answer(pre_heights, length_door);
