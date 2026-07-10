@@ -1,4 +1,4 @@
-for (int i = 0; i < 100; i++)
-    {
-        date_time();
-    }
+
+    for(int i : diff_arr)
+    cout << i << ' ';
+    cout << '\n';
